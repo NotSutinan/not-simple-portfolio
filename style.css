@@ -1,0 +1,384 @@
+/* General Variables for Dark Theme */
+:root {
+    --background-color: #1e1e1e; /* Very dark grey */
+    --text-color: #f0f0f0;       /* Light grey for main text */
+    --heading-color: #ffffff;    /* White for headings */
+    --accent-color: #61dafb;     /* Cyan for links and highlights */
+    --card-background: #2c2c2c;  /* Slightly lighter grey for cards */
+    --font-primary: 'JetBrains Mono', monospace;
+
+    /* Light Theme Variables */
+    --background-color-light: #ffffff; /* White */
+    --text-color-light: #333333;       /* Dark grey for text */
+    --heading-color-light: #000000;    /* Black for headings */
+    --accent-color-light: #007bff;     /* Blue for links and highlights */
+    --card-background-light: #f8f9fa;  /* Very light grey for cards */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-primary);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme changes */
+}
+
+/* Apply light theme */
+body.light-theme {
+    --background-color: var(--background-color-light);
+    --text-color: var(--text-color-light);
+    --heading-color: var(--heading-color-light);
+    --accent-color: var(--accent-color-light);
+    --card-background: var(--card-background-light);
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Header */
+header {
+    background: var(--card-background);
+    color: var(--heading-color);
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: var(--accent-color) 3px solid;
+    position: relative; /* Needed for absolute positioning of theme switch */
+    display: flex; /* Use flexbox for better alignment */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Distribute space between branding, nav, and switch */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+header #branding {
+    /* float: left; Removed float for flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    flex-grow: 1; /* Allow branding to take available space */
+}
+
+header #branding h1 {
+    margin: 0;
+    color: var(--heading-color);
+    font-size: 2em;
+    font-weight: 700;
+}
+
+header #branding h2 {
+    margin: 0;
+    color: var(--accent-color);
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+header nav {
+    /* float: right; Removed float for flexbox */
+    margin-top: 0; /* Adjusted margin */
+    display: flex; /* Use flexbox for nav items */
+    align-items: center;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex; /* Ensure nav items are in a row */
+}
+
+header li {
+    /* display: inline; Removed inline for flexbox */
+    padding: 0 20px 0 20px;
+}
+
+header a {
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header a:hover {
+    color: var(--accent-color);
+}
+
+/* Theme Switcher */
+.theme-switch-container {
+    position: absolute; /* Position it absolutely within the header */
+    right: 20px; /* Position from the right edge */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center */
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 24px;
+  position: relative;
+  width: 40px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3; /* Blue when checked (light theme active) */
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Clear floats */
+header::after, .container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Hero Section */
+#hero {
+    min-height: 400px;
+    /* background: #333 url('images/hero-background.jpg') no-repeat center center/cover; */ /* Placeholder image */
+    background-color: var(--card-background); /* Use card background for consistency */
+    text-align: center;
+    color: var(--heading-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Add padding for smaller screens */
+}
+
+#hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: var(--heading-color);
+    font-weight: 700;
+}
+
+#hero h2 {
+    font-size: 1.8em;
+    color: var(--accent-color);
+    font-weight: 400;
+}
+
+#hero p {
+    font-size: 1.3em;
+    margin-top: 20px;
+    color: var(--text-color);
+}
+
+
+/* Sections */
+section {
+    padding: 40px 0;
+}
+
+section h3 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: var(--heading-color);
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block; /* To make border fit width */
+    padding-bottom: 5px;
+}
+
+/* Project List */
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-item {
+    background: var(--card-background);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+}
+
+.project-item h4 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: var(--heading-color);
+}
+
+.project-item a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: var(--accent-color);
+    color: var(--background-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.project-item a:hover {
+    background: #508eab; /* Darker cyan on hover */
+}
+
+/* Skills */
+#skills ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+#skills li {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 8px 15px;
+    background: var(--card-background);
+    border-radius: 5px;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease;
+}
+
+#skills li:hover {
+    background: var(--accent-color);
+    color: var(--background-color);
+}
+
+
+/* Contact */
+.contact-links {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+.contact-links li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.contact-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: var(--heading-color);
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+    background: var(--card-background);
+    color: var(--text-color);
+    font-size: 0.9em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: center; /* Center items when wrapped */
+        padding-top: 10px; /* Adjust padding */
+        padding-bottom: 10px;
+    }
+    header #branding {
+        text-align: center;
+        margin-bottom: 10px;
+        flex-grow: 0; /* Don't let branding take all space */
+    }
+    header nav {
+        width: 100%; /* Nav takes full width */
+        justify-content: center;
+        margin-top: 10px;
+    }
+    header ul {
+        flex-direction: column; /* Stack nav items */
+        align-items: center;
+    }
+    header li {
+        padding: 10px 0;
+        display: block;
+    }
+    .theme-switch-container {
+        position: static; /* Remove absolute positioning */
+        transform: none;
+        margin-top: 15px;
+        order: 3; /* Place switch at the end */
+        width: 100%;
+        text-align: center;
+    }
+
+    #hero h1 {
+        font-size: 2.5em;
+    }
+    #hero h2 {
+        font-size: 1.4em;
+    }
+    #hero p {
+        font-size: 1.1em;
+    }
+
+    .project-list {
+        grid-template-columns: 1fr; /* Stack projects on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #hero h1 {
+        font-size: 2em;
+    }
+    #hero h2 {
+        font-size: 1.2em;
+    }
+}
