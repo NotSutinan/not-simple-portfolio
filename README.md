@@ -20,11 +20,13 @@ A professional, modern-looking personal portfolio website for Sutinan Not, a Dat
 
 ## 📂 Project Structure
 
-- `index.html`: The main entry point and structure of the website.
-- `style.css`: Contains all visual styling, including theme variables and responsiveness.
-- `script.js`: Handles theme switching, smooth scrolling, and other interactive features.
-- `images/`: Directory for project-related assets and screenshots.
+- `docs/`: Contains the live website files for GitHub Pages deployment.
+  - `index.html`: The main entry point and structure of the website.
+  - `style.css`: Contains all visual styling, including theme variables and responsiveness.
+  - `script.js`: Handles theme switching, smooth scrolling, and other interactive features.
+  - `images/`: Directory for project-related assets and screenshots.
 - `plan/`: Documentation and project planning materials.
+- `GEMINI.md`: Project overview and development conventions.
 
 ## 💻 Local Development
 
@@ -34,8 +36,8 @@ Since this is a static website, it doesn't require any compilation or complex se
    ```bash
    git clone https://github.com/NotSutinan/not-simple-portfolio.git
    ```
-2. **Open `index.html`:**
-   Simply open the `index.html` file in your favorite web browser to view the site locally.
+2. **Open `docs/index.html`:**
+   Simply open the `docs/index.html` file in your favorite web browser to view the site locally.
 
 ## 🌐 Deployment
 
@@ -43,8 +45,9 @@ This portfolio is designed to be easily deployed using **GitHub Pages**.
 
 1. Push your code to a GitHub repository.
 2. Go to **Settings > Pages** in your repository.
-3. Select the branch you want to deploy from (e.g., `master`) and the folder (`/root`).
-4. Save, and your site will be live at `https://<your-username>.github.io/<repo-name>/`.
+3. Under the "Build and deployment" section, for **Source**, select **Deploy from a branch**.
+4. Select your primary branch (e.g., `master`) and set the folder to `/docs`.
+5. Save, and your site will be live at `https://<your-username>.github.io/<repo-name>/`.
 
 ## 📄 License
 
